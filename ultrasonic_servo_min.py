@@ -12,7 +12,7 @@ servo.freq(50)  # 50 Hz (~20 ms period)
 # Servo helper: write angle in degrees (0..180)
 def write_deg(deg: float) -> None:
     deg = max(0, min(180, deg))
-    us = 500 + (deg * 2000) / 180.0     # 0°≈500us, 180°≈2500us
+    us = 500 + (deg * 2000) / 180.0  # 0°≈500us, 180°≈2500us
     duty = int(us / 20000.0 * 65535.0)  # 20ms period -> duty_u16
     servo.duty_u16(duty)
 
